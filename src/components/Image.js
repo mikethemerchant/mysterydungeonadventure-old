@@ -1,34 +1,18 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import rooms from '../data/rooms.json';
 
-function Image ({imageId}) {
-    const [image, setImage] = useState(16)
+function Image ({arrayIndex}) {
+
+    const [imageName, setImageName] = useState(0);
 
     useEffect(() => {
-        getImage(imageId)
-    }, [imageId])
-
-    async function getImage(id) {
-        // set image name from json file
-        // const data = await loadJson('./monsters.json', id);
-        // setImage('img/' + data[0].image);
-        setImage('Dragon.png');
-    }
-
-    // async function loadJson(file, id) {
-    //     try {
-    //         const response = await fetch(file);
-    //         const data = await response.json();
-    //         return data.filter(data => data.id === id);
-    //     } catch (error) {
-    //         console.error('Error loading JSON file:', error);
-    //     }
-    // }
+        setImageName(rooms[arrayIndex].image);
+    }, [arrayIndex]);
 
     return (
-        <div>
-            <img alt="center image" src="img/Dragon.png" width="500" height="500"></img>
-        </div>
+        <>
+            <img src={`images/${imageName}`} alt="display name not found" height="500" width="500" />
+        </>
     )
 }
 

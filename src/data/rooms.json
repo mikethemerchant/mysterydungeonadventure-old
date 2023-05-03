@@ -1,4 +1,16 @@
 [
+    {
+        "id": 0,
+        "name": "start",
+        "description": "start of the game",
+        "level": 1,
+        "experience": 1,
+        "attack": 1,
+        "defence": 1,
+        "damage_dice": "1d20",
+        "hitpoints": 1,
+        "image": "enterDungeon.png"
+    },
     { 
         "id":1,    
         "name": "EntranceHall",    
@@ -52,17 +64,5 @@
         "name": "PuzzleRoom",    
         "description": "This room contains a series of puzzles and riddles that must be solved to proceed. There are various objects and symbols scattered around the room that may provide clues to solving the puzzles. The air is filled with a sense of anticipation and mystery."
         ,"image": "PuzzleRoom.png"  
-    },
-    {
-        "id": 16,
-        "name": "start",
-        "description": "start of the game",
-        "level": 1,
-        "experience": 1,
-        "attack": 1,
-        "defence": 1,
-        "damage_dice": "1d20",
-        "hitpoints": 1,
-        "image": "enterDungeon.png"
-      }
+    }
 ]

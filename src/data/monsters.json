@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "name": "Giant",
+      "description": "A small and sneaky creature with brown fur and sharp teeth.",
+      "level": 1,
+      "experience": 100,
+      "attack": 10,
+      "defence": 8,
+      "damage_dice": "1d6",
+      "hitpoints": 20,
+      "image": "Giant.png"
+    },
+    {
+      "id": 2,
+      "name": "Goblin",
+      "description": "A small and sneaky creature with green skin and sharp teeth.",
+      "level": 1,
+      "experience": 100,
+      "attack": 10,
+      "defence": 8,
+      "damage_dice": "1d6",
+      "hitpoints": 20,
+      "image": "Goblin.png"
+    }
+]
+
