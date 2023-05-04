@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import rooms from '../data/rooms.json';
+import data from '../data/monsters.json';
 
 function Image ({arrayIndex}) {
 
     const [imageName, setImageName] = useState(0);
 
     useEffect(() => {
-        setImageName(rooms[arrayIndex].image);
+        setImageName(data[arrayIndex].image);
     }, [arrayIndex]);
 
     return (

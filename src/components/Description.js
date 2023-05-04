@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import rooms from '../data/rooms.json';
+import data from '../data/monsters.json';
 
 function Description({arrayIndex}) {
     const [text, setText] = useState('');
 
     useEffect(() => {
-        setText(rooms[arrayIndex].description)
+        setText(data[arrayIndex].description)
     }, [arrayIndex])
 
     return (
