@@ -11,7 +11,7 @@ function Image ({arrayIndex}) {
 
     return (
         <>
-            <img src={`images/${imageName}`} alt="display name not found" height="500" width="500" />
+            <img src={`images/${imageName}`} alt="display name not found" />
         </>
     )
 }
