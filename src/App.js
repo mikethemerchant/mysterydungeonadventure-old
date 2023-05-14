@@ -69,6 +69,9 @@ function App() {
   const attackMonsterChange = event => setMonster({name: monster.name, hitpoints: monster.hitpoints, attack: event.target.value, defence: monster.defence, damage: monster.damage} )
   const defenceMonsterChange = event => setMonster({name: monster.name, hitpoints: monster.defence, attack: monster.attack, defence: event.target.value, damage: monster.damage} )
   const damageMonsterChange = event => setMonster({name: monster.name, hitpoints: monster.defence, attack: monster.attack, defence: monster.defence, damage: event.target.value} )
+  // q: how can I combine the above 5 functions into one function?
+  // a: https://stackoverflow.com/questions/43638938/reactjs-multiple-inputs-handling
+
 
   return (
     <>
