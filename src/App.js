@@ -1,8 +1,9 @@
 import './App.css';
 import data from './data/monsters.json';
-import Image from './components/Image.js'
-import Description from './components/Description';
 import { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Card, CardBody, CardTitle, CardSubtitle, CardText } from 'reactstrap';
+
 
 function App() {
   const [arrayIndex, setArrayIndex] = useState(0);
@@ -69,16 +70,35 @@ function App() {
   const attackMonsterChange = event => setMonster({name: monster.name, hitpoints: monster.hitpoints, attack: event.target.value, defence: monster.defence, damage: monster.damage} )
   const defenceMonsterChange = event => setMonster({name: monster.name, hitpoints: monster.defence, attack: monster.attack, defence: event.target.value, damage: monster.damage} )
   const damageMonsterChange = event => setMonster({name: monster.name, hitpoints: monster.defence, attack: monster.attack, defence: monster.defence, damage: event.target.value} )
-  // q: how can I combine the above 5 functions into one function?
-  // a: https://stackoverflow.com/questions/43638938/reactjs-multiple-inputs-handling
-
 
   return (
     <>
+      <Card
+        style={{
+          width: '50%'
+        }}
+      >
+        <CardBody>
+          <CardTitle tag="h5">
+            {data[arrayIndex].name}
+          </CardTitle>
+          <CardText>
+            {data[arrayIndex].description}
+            {fightDescription}
+          </CardText>
+          <Button color="primary" onClick={onButttonClick}>Next</Button>
+          <Button color="danger" onClick={onAttackClick}>Attack</Button>
+        </CardBody>
+        <img
+          src={`images/${data[arrayIndex].image}`} 
+          alt="display name not found" 
+        />
+      </Card>
+      {/*
       <Image arrayIndex={arrayIndex} />
       <Description arrayIndex={arrayIndex} />
-      <button onClick={onButttonClick}>Next</button>
-      <button onClick={onAttackClick}>Attack</button>
+      <Button color="primary" onClick={onButttonClick}>Next</Button>
+      <Button color="danger" onClick={onAttackClick}>Attack</Button>
       <div>
         <input type="text" id="name" value={character.name} onChange={nameChange} />
         <input type="text" id="hitpoints" value={character.hitpoints} onChange={hitpointsChange} />
@@ -94,6 +114,7 @@ function App() {
         <input type="text" id="damage" value={monster.damage} onChange={damageMonsterChange} />
       </div>
       <p>{fightDescription}</p>
+       */}
     </>
   );
 }
