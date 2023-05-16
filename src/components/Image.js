@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import data from '../data/monsters.json';
+import '../App.css';
+// q: how do I navigate up a directory?
+
+
 
 function Image ({arrayIndex}) {
 
@@ -11,9 +15,7 @@ function Image ({arrayIndex}) {
 
     return (
         <>
-            <img src={`images/${imageName}`} alt="display name not found" style={{border: '4px solid black'}}  
-            />
-
+            <img src={`images/${imageName}`} alt="display name not found" className="img-float basic-border"/>
         </>
     )
 }
