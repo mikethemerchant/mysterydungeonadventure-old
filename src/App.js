@@ -33,8 +33,15 @@ function App() {
 
   function onAttackClick() {
     let result = ""; 
-    result += " " + fight(character, monster);
-    result += " " + fight(monster, character);
+    if (character.hitpoints >= 0 && monster.hitpoints >= 0) {
+        result += " " + fight(character, monster);
+    }
+    if (character.hitpoints >= 0 && monster.hitpoints >= 0) {
+      result += " " + fight(monster, character);
+    }
+    if (result === "") {
+      result += "..nothing happens..";
+    }
     setFightDescription(result);
   }
                   
@@ -44,14 +51,7 @@ function App() {
     let attackDamage = parseInt(attacker.damage);
 
     let text = "";
-    if (attacker.hitpoints <= 0) {
-        text = `${attacker.name} is dead.`;
-        return text;
-    }
-    if (defender.hitpoints <= 0) {
-        text = `${defender.name} is dead.`;
-        return text;
-    }
+    
     if (defender.hitpoints >= 1 && attacker.hitpoints >= 1) {
       if (attackValue > defender.defence) {
         defender.hitpoints -= attackDamage;
