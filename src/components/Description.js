@@ -9,7 +9,7 @@ function Description({arrayIndex}) {
     }, [arrayIndex])
 
     return (
-        <div style={{border: '4px solid black'}} >
+        <div>
             {text}
         </div>
     )

@@ -1,8 +1,11 @@
 import './App.css';
-import data from './data/monsters.json';
-import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Card, CardBody, CardTitle, CardSubtitle, CardText } from 'reactstrap';
+import { Button } from 'reactstrap';
+import { useState, useEffect } from 'react';
+
+import Image from './components/Image.js'
+import Description from './components/Description';
+import data from './data/monsters.json';
 
 
 function App() {
@@ -73,48 +76,27 @@ function App() {
 
   return (
     <>
-      <Card
-        style={{
-          width: '50%'
-        }}
-      >
-        <CardBody>
-          <CardTitle tag="h5">
-            {data[arrayIndex].name}
-          </CardTitle>
-          <CardText>
-            {data[arrayIndex].description}
-            {fightDescription}
-          </CardText>
+      <Image arrayIndex={arrayIndex} />
+      <div className='div-sticky'>
+          <Description arrayIndex={arrayIndex} />
+          {fightDescription}
           <Button color="primary" onClick={onButttonClick}>Next</Button>
           <Button color="danger" onClick={onAttackClick}>Attack</Button>
-        </CardBody>
-        <img
-          src={`images/${data[arrayIndex].image}`} 
-          alt="display name not found" 
-        />
-      </Card>
-      {/*
-      <Image arrayIndex={arrayIndex} />
-      <Description arrayIndex={arrayIndex} />
-      <Button color="primary" onClick={onButttonClick}>Next</Button>
-      <Button color="danger" onClick={onAttackClick}>Attack</Button>
-      <div>
-        <input type="text" id="name" value={character.name} onChange={nameChange} />
-        <input type="text" id="hitpoints" value={character.hitpoints} onChange={hitpointsChange} />
-        <input type="text" id="attack" value={character.attack} onChange={attackChange} />
-        <input type="text" id="defence" value={character.defence} onChange={defenceChange} />
-        <input type="text" id="damage" value={character.damage} onChange={damageChange} />
+          <div>
+            <input type="text" id="name" value={character.name} onChange={nameChange} />
+            <input type="text" id="hitpoints" value={character.hitpoints} onChange={hitpointsChange} />
+            <input type="text" id="attack" value={character.attack} onChange={attackChange} />
+            <input type="text" id="defence" value={character.defence} onChange={defenceChange} />
+            <input type="text" id="damage" value={character.damage} onChange={damageChange} />
+          </div>
+          <div>
+            <input type="text" id="name" value={monster.name} onChange={nameMonsterChange} />
+            <input type="text" id="hitpoints" value={monster.hitpoints} onChange={hitpointsMonsterChange} />
+            <input type="text" id="attack" value={monster.attack} onChange={attackMonsterChange} />
+            <input type="text" id="defence" value={monster.defence} onChange={defenceMonsterChange} />
+            <input type="text" id="damage" value={monster.damage} onChange={damageMonsterChange} />
+          </div>
       </div>
-      <div>
-        <input type="text" id="name" value={monster.name} onChange={nameMonsterChange} />
-        <input type="text" id="hitpoints" value={monster.hitpoints} onChange={hitpointsMonsterChange} />
-        <input type="text" id="attack" value={monster.attack} onChange={attackMonsterChange} />
-        <input type="text" id="defence" value={monster.defence} onChange={defenceMonsterChange} />
-        <input type="text" id="damage" value={monster.damage} onChange={damageMonsterChange} />
-      </div>
-      <p>{fightDescription}</p>
-       */}
     </>
   );
 }
