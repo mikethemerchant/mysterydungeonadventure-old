@@ -6,7 +6,8 @@ import { useState, useEffect } from 'react';
 import Image from './components/Image.js'
 import Description from './components/Description';
 import data from './data/monsters.json';
-
+import misses from './data/miss.json';
+import hits from './data/hit.json';
 
 function App() {
   const [arrayIndex, setArrayIndex] = useState(0);
@@ -49,19 +50,21 @@ function App() {
   function fight(attacker, defender) {
     let attackValue = parseInt(attacker.attack) + Math.floor(Math.random() * 20);
     let attackDamage = parseInt(attacker.damage);
+    const missMax = misses.length - 1;
+    let missIndex = 1;
+    const hitMax = hits.length - 1;
+    let hitIndex = 1;
 
     let text = "";
     
     if (defender.hitpoints >= 1 && attacker.hitpoints >= 1) {
-      if (attackValue > defender.defence) {
+      if (attackValue > defender.defence) {  // hit
         defender.hitpoints -= attackDamage;
-        if(defender.hitpoints <= 0) {
-          text = `${attacker.name} hit ${defender.name} for ${attackDamage} damage!` + ` ${defender.name} is dead.`;
-        } else { 
-          text = `${attacker.name} hit ${defender.name} for ${attackDamage} damage!` + ` ${defender.name} has ${defender.hitpoints} hitpoints left!`;
-        }
-      } else {
-          text = `${attacker.name} missed!`;
+        hitIndex = Math.floor((Math.random() * hitMax))+1;
+        text = hits[hitIndex].description.replace("ATTACKER", attacker.name).replace("DEFENDER", defender.name);
+      } else { // miss
+        missIndex = Math.floor((Math.random() * missMax))+1;
+        text = misses[missIndex].description.replace("ATTACKER", attacker.name).replace("DEFENDER", defender.name);
       }
     }
 
